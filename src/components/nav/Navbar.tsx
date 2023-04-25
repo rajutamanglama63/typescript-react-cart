@@ -1,6 +1,6 @@
 import {  XMarkIcon, ShoppingCartIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
-import { CartDrawer, CartIcon, CloseBtn, Logo, NavContainer, StyledNavbar } from './Nav.styles'
+import { CartDrawer, CartIcon, CartSection, CloseBtn, CloseBtnSection, ItemCounter, Logo, NavContainer, StyledNavbar } from './Nav.styles'
 
 type Props = {}
 
@@ -10,17 +10,19 @@ const Navbar = (props: Props) => {
     <StyledNavbar>
       <NavContainer>
           <Logo>Shopping Cart</Logo>
-          <CartIcon>
-
-          <ShoppingCartIcon onClick={() => setIsToggled(true)}  />
-          </CartIcon>
+          <CartSection>
+            <CartIcon>
+              <ShoppingCartIcon onClick={() => setIsToggled(true)}  />
+            </CartIcon>
+            <ItemCounter>1</ItemCounter>
+          </CartSection>
           {isToggled && (
             <CartDrawer>
-              <CloseBtn>
-                <button onClick={() => setIsToggled(false)} style={{border: "none"}} >
+              <CloseBtnSection>
+                <CloseBtn onClick={() => setIsToggled(false)}  >
                   <XMarkIcon style={{height: "2rem", width: "2rem", color: "#e66465"}} />
-                </button>
-              </CloseBtn>
+                </CloseBtn>
+              </CloseBtnSection>
             </CartDrawer>
           )}
       </NavContainer>

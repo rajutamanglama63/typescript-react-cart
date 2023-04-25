@@ -13,7 +13,7 @@ export const StyledNavbar = styled.div`
 
 export const NavContainer = styled.div`
     margin: 0 auto;
-    width: 50%;
+    width: 60%;
     height: 50px;
     // border: 1px solid pink;
     display: flex;
@@ -42,6 +42,11 @@ export const Logo = styled.div`
     }
 `
 
+export const CartSection = styled.div`
+    position: relative;
+    cursor: pointer;
+`
+
 export const CartIcon = styled.div`
       width: 2rem;
       height: 2rem;
@@ -59,6 +64,28 @@ export const CartIcon = styled.div`
     }
 `
 
+export const ItemCounter = styled.span`
+    position: absolute;
+    font-size: 0.5rem;
+    color: #000;
+    background-color: red;
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    @media (max-width: 768px) {
+        width: .7rem;
+        height: .7rem;
+        border-radius: 50%;
+    }
+`
+
 export const CartDrawer = styled.div`
     height: 100%;
     width: 60%;
@@ -66,11 +93,18 @@ export const CartDrawer = styled.div`
     top: 0;
     right: 0;
     z-index: 30;
-    background-color: #E58799;
+    background-color: #F6D5D2;
 `
 
-export const CloseBtn = styled.div`
+export const CloseBtnSection = styled.div`
+    border: 1px solid yellow; 
     display: flex;
-    justify-contain: flex-end;
-    padding: 2rem;
+    justify-content: flex-end;
+    padding: .4rem;
+`
+
+export const CloseBtn = styled.button`
+    cursor: pointer;
+    border: none;
+    background-color: #F6D5D2;
 `
