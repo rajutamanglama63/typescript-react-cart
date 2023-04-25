@@ -19,11 +19,44 @@ export const NavContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: 768px) {
+        margin: 0 auto;
+        width: 80%;
+      }
 `
 
-export const Logo = styled.h2`
+export const Logo = styled.div`
     letter-spacing: .2rem;
+    font-weight: 700;
+    font-size: 1.5rem;
     color: #E58799;
+
+    @media (max-width: 768px) {
+        letter-spacing: .1rem;
+        font-size: 1.2rem;
+      }
+
+    @media (max-width: 480px) {
+        font-size: 1rem;
+    }
+`
+
+export const CartIcon = styled.div`
+      width: 2rem;
+      height: 2rem;
+      color: #e66465;
+
+      @media (max-width: 768px) {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      @media (max-width: 480px) {
+        width: 1.2rem;
+        height: 1.2rem;
+      }
+    }
 `
 
 export const CartDrawer = styled.div`
@@ -32,7 +65,7 @@ export const CartDrawer = styled.div`
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 40;
+    z-index: 30;
     background-color: #E58799;
 `
 
