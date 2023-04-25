@@ -25,3 +25,19 @@ export const Logo = styled.h2`
     letter-spacing: .2rem;
     color: #E58799;
 `
+
+export const CartDrawer = styled.div`
+    height: 100%;
+    width: 60%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 40;
+    background-color: #E58799;
+`
+
+export const CloseBtn = styled.div`
+    display: flex;
+    justify-contain: flex-end;
+    padding: 2rem;
+`
