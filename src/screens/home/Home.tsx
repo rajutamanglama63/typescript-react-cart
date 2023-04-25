@@ -1,10 +1,11 @@
 import React from 'react'
+import { RootDiv } from './Home.styles'
 
 type Props = {}
 
 const Home = (props: Props) => {
   return (
-    <div>This is Home screen.</div>
+    <RootDiv>This is Home screen.</RootDiv>
   )
 }
 

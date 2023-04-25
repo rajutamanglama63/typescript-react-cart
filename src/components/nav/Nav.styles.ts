@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
 export const StyledNavbar = styled.div`
-    // height: 3rem;
+    // height: 70px;
     width: 100%;
-    // border: 2px solid #E58799;
+    border: 2px solid #E58799;
     position: fixed;
     z-index: 50;
+    top: 0
     display: flex;
     align-items: center;
 `
@@ -13,7 +14,7 @@ export const StyledNavbar = styled.div`
 export const NavContainer = styled.div`
     margin: 0 auto;
     width: 50%;
-    height: 3rem;
+    height: 50px;
     // border: 1px solid pink;
     display: flex;
     align-items: center;
