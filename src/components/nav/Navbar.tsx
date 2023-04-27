@@ -1,6 +1,6 @@
 import {  XMarkIcon, ShoppingCartIcon } from "@heroicons/react/24/solid";
 import { FC, useState } from "react";
-import { CartDrawer, CartIcon, CartItem, CartSection, CloseBtn, CloseBtnSection, CounterBtn, Divider, Image, ItemCounter, LogisticSide, Logo, NavContainer, Price, StyledNavbar, Title } from './Nav.styles'
+import { CartDrawer, CartIcon, CartItem, CartSection, CloseBtn, CloseBtnSection, CounterBtn, Divider, GrandTotal, Image, ItemCounter, LogisticSide, Logo, NavContainer, Price, StyledNavbar, Title } from './Nav.styles'
 
 type Props = {}
 
@@ -41,6 +41,8 @@ const Navbar: FC = (props: Props) => {
                   <Image alt='product-img' src='https://images.unsplash.com/photo-1614008262085-fad18b3eeef6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2FtYXJhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60' />
                 {/* </ImgSide> */}
               </CartItem>
+
+              <GrandTotal>Grand Total: Rs 123</GrandTotal>
             </CartDrawer>
           )}
       </NavContainer>

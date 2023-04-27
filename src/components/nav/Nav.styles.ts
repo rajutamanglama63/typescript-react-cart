@@ -173,3 +173,9 @@ export const Image = styled.img`
         height: 12rem;
 `
 
+export const GrandTotal = styled.p`
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+`
+
