@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { ButtonType } from '../../react-app-env'
 
 export const StyledNavbar = styled.div`
     // height: 70px;
@@ -97,7 +98,6 @@ export const CartDrawer = styled.div`
 `
 
 export const CloseBtnSection = styled.div`
-    border: 1px solid yellow; 
     display: flex;
     justify-content: flex-end;
     padding: .4rem;
@@ -108,3 +108,68 @@ export const CloseBtn = styled.button`
     border: none;
     background-color: #F6D5D2;
 `
+
+export const CartItem = styled.div`
+    display: flex;
+    border: 2px solid #e66465;
+    height: 10rem;
+    align-items: center;
+    padding: 10px;
+`
+
+export const LogisticSide = styled.div`
+    flex: 8;
+    // background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-right: .5rem;
+`
+
+export const Divider = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+
+export const Title = styled.p`
+    font-weight: 700;
+    font-size: 1.2rem;
+`
+
+export const Price = styled.p`
+    font-weight: 500;
+    margin: .2rem 0;
+`
+
+export const CounterBtn = styled.button<ButtonType>`
+    background-color: #d3d3d3;
+    padding: 1rem;
+    border-radius: 5px;
+    border: none;
+
+    &:hover {
+        background-color: ${props => props.variant !== "outline" ? "#d3d3d3" : "#fff"}
+    }
+`
+
+// export const ImgSide = styled.div`
+//     flex: 4;
+//     height: 100%;
+//     background-color: #f4f4f4;
+// `
+
+export const Image = styled.img`  
+    flex: 4;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @media (max-width: 768px) {
+        height: 15rem;
+    }
+
+    @media (max-width: 1250px) {
+        height: 12rem;
+`
+

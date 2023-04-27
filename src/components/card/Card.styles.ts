@@ -54,5 +54,5 @@ export const AddBtn = styled.button<ButtonType>`
     &:hover {
         background-color: ${props =>
           props.variant !== 'outline' ? '#FFF' : '#f0dcd8'};
-        };
+    };
 `
