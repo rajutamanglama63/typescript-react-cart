@@ -3,6 +3,7 @@ import { ButtonType } from '../../react-app-env'
 
 export const StyledNavbar = styled.div`
     // height: 70px;
+    background-color: #fff;
     width: 100%;
     border: 2px solid #E58799;
     position: fixed;

@@ -4,14 +4,15 @@ import { ButtonType } from "../../react-app-env";
 export const StyledCard = styled.div`
     border: 2px solid #E58799;
     padding: .2rem;
+    // height: 100%;
     display: flex;
     flex-direction: column;
 `
 
 export const Image = styled.img`
     width: 100%;
-    height: 20rem;
-    object-fit: cover;
+    height: 15rem;
+    object-fit: contain;
 
     @media (max-width: 768px) {
         height: 15rem;
