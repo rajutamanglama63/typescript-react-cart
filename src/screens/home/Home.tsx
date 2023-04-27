@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query'
+import Card from '../../components/card/Card'
 import { CartItemType } from '../../react-app-env'
-import { RootDiv } from './Home.styles'
+import { HomeContainer, RootDiv } from './Home.styles'
 
 type Props = {}
 
@@ -10,10 +11,24 @@ const getProducts = async (): Promise<CartItemType[]> =>
 
 const Home = (props: Props) => {
   const {data, isLoading, error} = useQuery<CartItemType[]>('products', getProducts)
-  console.log("data: ", data)
+  // console.log("data: ", data)
+
+  // if(isLoading) return <h1>Loading...</h1>
+
+  // if(error) return <div>Something went wrong...</div>
   
   return (
-    <RootDiv>This is Home screen.</RootDiv>
+    <RootDiv>
+      <HomeContainer>
+        
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </HomeContainer>
+    </RootDiv>
   )
 }
 

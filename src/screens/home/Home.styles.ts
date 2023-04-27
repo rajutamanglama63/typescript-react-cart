@@ -5,3 +5,25 @@ export const RootDiv = styled.div`
     position: relative;
     top: 50px;
 `
+
+export const HomeContainer = styled.div`
+    // border: 1px solid green;
+    margin: 0 auto;
+    width: 60%;
+    padding: 4rem 0rem;
+    display: grid;
+    grid-gap: .5rem;
+    grid-template-columns: auto auto auto;
+
+    @media (max-width: 768px) {
+        grid-template-columns: auto auto;
+        padding: 2rem 0;
+        width: 80%;
+    }
+
+    @media (max-width: 480px) {
+        grid-template-columns: auto;
+        padding: 2rem 0;
+        width: 80%;
+    }
+`

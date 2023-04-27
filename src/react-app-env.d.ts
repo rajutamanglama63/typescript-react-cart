@@ -9,3 +9,7 @@ export type CartItemType = {
     title: string;
     amount: number;
 }
+
+export type ButtonType = {
+    variant?: string
+}
