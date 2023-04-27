@@ -95,6 +95,10 @@ export const CartDrawer = styled.div`
     right: 0;
     z-index: 30;
     background-color: #F6D5D2;
+
+    @media (max-width: 768px) {
+        width: 75%;
+    }    
 `
 
 export const CloseBtnSection = styled.div`

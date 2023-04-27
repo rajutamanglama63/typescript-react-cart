@@ -7,9 +7,19 @@ export type CartItemType = {
     image: string;
     price: number;
     title: string;
-    amount: number;
+    amount?: number;
 }
 
 export type ButtonType = {
     variant?: string
+}
+
+export type ProductContextType = {
+    id: number;
+    category: string;
+    description: string;
+    image: string;
+    price: number;
+    title: string;
+    amount?: number;
 }
