@@ -135,11 +135,19 @@ export const Divider = styled.div`
 export const Title = styled.p`
     font-weight: 700;
     font-size: 1.2rem;
+
+    @media (max-width: 768px) {
+        font-size: 1rem;
+    }
 `
 
 export const Price = styled.p`
     font-weight: 500;
     margin: .2rem 0;
+
+    @media (max-width: 768px) {
+        font-weight: 400;
+    }
 `
 
 export const CounterBtn = styled.button<ButtonType>`
@@ -150,6 +158,10 @@ export const CounterBtn = styled.button<ButtonType>`
 
     &:hover {
         background-color: ${props => props.variant !== "outline" ? "#d3d3d3" : "#fff"}
+    }
+
+    @media (max-width: 768px) {
+        padding: .5rem;
     }
 `
 
@@ -166,16 +178,20 @@ export const Image = styled.img`
     object-fit: cover;
 
     @media (max-width: 768px) {
-        height: 15rem;
+        width: 40%;
     }
 
     @media (max-width: 1250px) {
-        height: 12rem;
+        width: 40%;
 `
 
 export const GrandTotal = styled.p`
     font-weight: 700;
     font-size: 1.5rem;
     margin: 1rem 0;
+
+    @media (max-width: 768px) {
+        font-size: 1rem;
+    }
 `
 
