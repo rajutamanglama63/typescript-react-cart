@@ -4,7 +4,6 @@ import { ButtonType } from "../../react-app-env";
 export const StyledCard = styled.div`
     border: 2px solid #E58799;
     padding: .2rem;
-    // height: 100%;
     display: flex;
     flex-direction: column;
 `
@@ -25,6 +24,10 @@ export const Image = styled.img`
 
 export const Title = styled.p`
     font-weight: 700;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
 `
 
 export const Price = styled.p`
@@ -35,7 +38,7 @@ export const Price = styled.p`
 export const Description = styled.p`
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     overflow: hidden;
     font-weight: 400;
     color: grey;

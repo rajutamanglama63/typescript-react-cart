@@ -18,12 +18,21 @@ export const HomeContainer = styled.div`
     @media (max-width: 768px) {
         grid-template-columns: auto auto;
         padding: 2rem 0;
+        margin: 0 auto;
         width: 80%;
     }
 
     @media (max-width: 480px) {
         grid-template-columns: auto;
         padding: 2rem 0;
+        margin: 0 auto;
         width: 80%;
+    }
+
+    @media (max-width: 360px) {
+        grid-template-columns: auto;
+        padding: 2rem 0;
+        margin: 0 auto;
+        width: 90%;
     }
 `
