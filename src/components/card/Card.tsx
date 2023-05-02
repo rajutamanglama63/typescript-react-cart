@@ -1,5 +1,8 @@
-import { FC, useContext } from 'react'
+import { FC, useContext, useEffect } from 'react'
+import { useQuery } from 'react-query';
 import { CartContext } from '../../context/CartContext';
+import { ProductContext } from '../../context/GlobalContext';
+import { ItemListContext } from '../../context/ItemList';
 import { ProductContextType } from '../../react-app-env';
 import { AddBtn, Description, Image, Price, StyledCard, Title } from './Card.styles'
 
@@ -11,8 +14,20 @@ type DatumType = {
 
 
 const Card: FC<DatumType> = ({datum}) => {
-  const {setCartItem} = useContext(CartContext);
+  const {cartItem, setCartItem} = useContext(CartContext);
+  console.log("cartItemId: ", cartItem)
+  const {cartItemList} = useContext(ItemListContext);
+  const getProducts = useContext(ProductContext)
+  const {data} = useQuery<ProductContextType[]>('products', getProducts)
 
+  useEffect(() => {
+    const foundItem = data?.find((singleData) => singleData.id === cartItem)
+    if(foundItem) {
+      cartItemList.push(foundItem)
+      console.log("from card: ", cartItemList)
+    }
+    
+  }, [cartItem, data, cartItemList])
   
   return (
     <StyledCard>

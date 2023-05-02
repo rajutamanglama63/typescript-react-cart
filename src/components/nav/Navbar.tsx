@@ -1,8 +1,9 @@
 import {  XMarkIcon, ShoppingCartIcon } from "@heroicons/react/24/solid";
 import { FC, useContext, useState } from "react";
-import { useQuery } from "react-query";
-import { CartContext } from "../../context/CartContext";
-import { ProductContext } from "../../context/GlobalContext";
+// import { useQuery } from "react-query";
+// import { CartContext } from "../../context/CartContext";
+// import { ProductContext } from "../../context/GlobalContext";
+import { ItemListContext } from "../../context/ItemList";
 import { ProductContextType } from "../../react-app-env";
 import { CartDrawer, CartIcon, CartItem, CartSection, CloseBtn, CloseBtnSection, CounterBtn, Divider, GrandTotal, Image, ItemCounter, LogisticSide, Logo, NavContainer, Price, StyledNavbar, Title } from './Nav.styles'
 
@@ -11,10 +12,11 @@ type Props = {}
 
 const Navbar: FC = (props: Props) => {
   const [isToggled, setIsToggled] = useState<boolean>(false)
-  const {cartItem, setCartItem} = useContext(CartContext);
-  const getProducts = useContext(ProductContext)
-  const {data, isLoading, error} = useQuery<ProductContextType[]>('products', getProducts)
-  // console.log("allProducts: ", data)
+  // const {cartItem, setCartItem} = useContext(CartContext);
+  const {cartItemList} = useContext(ItemListContext);
+  // const getProducts = useContext(ProductContext)
+  // const {data, isLoading, error} = useQuery<ProductContextType[]>('products', getProducts)
+  console.log("cartItemList: ", cartItemList)
   return (
     <StyledNavbar>
       <NavContainer>
@@ -33,9 +35,9 @@ const Navbar: FC = (props: Props) => {
                 </CloseBtn>
               </CloseBtnSection>
 
-              {cartItem !== 0 ? data?.map((product: ProductContextType) => (
+              {cartItemList.length !== 0 ? cartItemList.map((product: ProductContextType) => (
 
-              <CartItem>
+                  <CartItem key={product.id}>
                 <LogisticSide>
                   <Title>{product.title}</Title>
                   <Divider>
@@ -52,6 +54,7 @@ const Navbar: FC = (props: Props) => {
                   <Image alt='product-img' src={product.image} />
                 {/* </ImgSide> */}
               </CartItem>
+              
               )) : null}
 
               <GrandTotal>Grand Total: Rs 123</GrandTotal>
