@@ -1,11 +1,20 @@
 import {  XMarkIcon, ShoppingCartIcon } from "@heroicons/react/24/solid";
-import { FC, useState } from "react";
+import { FC, useContext, useState } from "react";
+import { useQuery } from "react-query";
+import { CartContext } from "../../context/CartContext";
+import { ProductContext } from "../../context/GlobalContext";
+import { ProductContextType } from "../../react-app-env";
 import { CartDrawer, CartIcon, CartItem, CartSection, CloseBtn, CloseBtnSection, CounterBtn, Divider, GrandTotal, Image, ItemCounter, LogisticSide, Logo, NavContainer, Price, StyledNavbar, Title } from './Nav.styles'
 
 type Props = {}
 
+
 const Navbar: FC = (props: Props) => {
   const [isToggled, setIsToggled] = useState<boolean>(false)
+  const {cartItem, setCartItem} = useContext(CartContext);
+  const getProducts = useContext(ProductContext)
+  const {data, isLoading, error} = useQuery<ProductContextType[]>('products', getProducts)
+  // console.log("allProducts: ", data)
   return (
     <StyledNavbar>
       <NavContainer>
@@ -24,11 +33,13 @@ const Navbar: FC = (props: Props) => {
                 </CloseBtn>
               </CloseBtnSection>
 
+              {cartItem !== 0 ? data?.map((product: ProductContextType) => (
+
               <CartItem>
                 <LogisticSide>
-                  <Title>Camara</Title>
+                  <Title>{product.title}</Title>
                   <Divider>
-                    <Price><span style={{"fontWeight": "700"}}>Price</span>: Rs 123</Price>
+                    <Price><span style={{"fontWeight": "700"}}>Price</span>: Rs {product.price}</Price>
                     <Price><span style={{"fontWeight": "700"}}>Total</span>: Rs 123</Price>
                   </Divider>
                   <Divider>
@@ -38,9 +49,10 @@ const Navbar: FC = (props: Props) => {
                   </Divider>
                 </LogisticSide>
                 {/* <ImgSide> */}
-                  <Image alt='product-img' src='https://images.unsplash.com/photo-1614008262085-fad18b3eeef6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2FtYXJhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60' />
+                  <Image alt='product-img' src={product.image} />
                 {/* </ImgSide> */}
               </CartItem>
+              )) : null}
 
               <GrandTotal>Grand Total: Rs 123</GrandTotal>
             </CartDrawer>

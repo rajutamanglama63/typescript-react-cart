@@ -23,7 +23,7 @@ const Home = (props: Props) => {
   
   return (
     <RootDiv>
-      <HomeContainer>
+      <HomeContainer className='row'>
         {/* {isLoading ? (<>Loading...</>) ? error ? (<>Something went wrong...</>) : data?.map((datum) => (<Card id={datum.id} datum={datum} />))}; */}
         
         {data?.map((datum) => (<Card key={datum.id} datum={datum} />))}

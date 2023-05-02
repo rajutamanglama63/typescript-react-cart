@@ -1,4 +1,5 @@
 import Navbar from "./components/nav/Navbar";
+import { CartContextProvider } from "./context/CartContext";
 import { GlobalContextProvider } from "./context/GlobalContext";
 import Home from "./screens/home/Home";
 
@@ -6,8 +7,10 @@ import Home from "./screens/home/Home";
 function App() {
   return (
     <GlobalContextProvider>
-      <Navbar />
-      <Home />
+      <CartContextProvider>
+        <Navbar />
+        <Home />
+      </CartContextProvider>
     </GlobalContextProvider>
   );
 }

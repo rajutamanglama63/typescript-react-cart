@@ -33,6 +33,20 @@ export const HomeContainer = styled.div`
         grid-template-columns: auto;
         padding: 2rem 0;
         margin: 0 auto;
-        width: 90%;
+        width: 80%;
     }
+
+    // @media (max-width: 540px) {
+    //     grid-template-columns: auto;
+    //     padding: 2rem 0;
+    //     margin: 0 auto;
+    //     width: 80%;
+    // }
+
+    // @media (max-width: 912px) {
+    //     grid-template-columns: auto auto;
+    //     padding: 2rem 0;
+    //     margin: 0 auto;
+    //     width: 70%;
+    // }
 `
