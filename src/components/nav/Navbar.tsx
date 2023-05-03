@@ -1,8 +1,9 @@
 import {  XMarkIcon, ShoppingCartIcon } from "@heroicons/react/24/solid";
-import { FC, useContext, useState } from "react";
-// import { useQuery } from "react-query";
-// import { CartContext } from "../../context/CartContext";
-// import { ProductContext } from "../../context/GlobalContext";
+import { FC, useContext, useEffect, useState } from "react";
+import { useQuery } from "react-query";
+import { CartContext } from "../../context/CartContext";
+import { ProductContext } from "../../context/GlobalContext";
+
 import { ItemListContext } from "../../context/ItemList";
 import { ProductContextType } from "../../react-app-env";
 import { CartDrawer, CartIcon, CartItem, CartSection, CloseBtn, CloseBtnSection, CounterBtn, Divider, GrandTotal, Image, ItemCounter, LogisticSide, Logo, NavContainer, Price, StyledNavbar, Title } from './Nav.styles'
@@ -12,11 +13,30 @@ type Props = {}
 
 const Navbar: FC = (props: Props) => {
   const [isToggled, setIsToggled] = useState<boolean>(false)
-  // const {cartItem, setCartItem} = useContext(CartContext);
-  const {cartItemList} = useContext(ItemListContext);
+  const {cartItem} = useContext(CartContext);
+  // const {cartItemList} = useContext(ItemListContext);
   // const getProducts = useContext(ProductContext)
   // const {data, isLoading, error} = useQuery<ProductContextType[]>('products', getProducts)
-  console.log("cartItemList: ", cartItemList)
+  
+
+
+  console.log("cartItemId: ", cartItem)
+  const {cartItemList, setCartItemList} = useContext(ItemListContext);
+  const getProducts = useContext(ProductContext)
+  const {data} = useQuery<ProductContextType[]>('products', getProducts)
+
+  useEffect(() => {
+    const foundItem = data?.find((singleData) => singleData.id === cartItem)
+    if(foundItem) {
+      if (!cartItemList.some((item) => item.id === foundItem.id)) {
+        setCartItemList((prevCartItemList) => [...prevCartItemList, foundItem]);
+        console.log("from card: ", cartItemList)
+      }
+    }
+    
+  }, [cartItem, data, setCartItemList, cartItemList])
+
+  console.log("from outside of useEffect: ", cartItemList)
   return (
     <StyledNavbar>
       <NavContainer>
